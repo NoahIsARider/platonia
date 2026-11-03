@@ -52,17 +52,20 @@ main {
   letter-spacing: 0.2em;
 }
 
-.plate .handle {
+.plate .handle /* unused */ {
   font-size: 13px;
 }
 
 .plate .stamp {
   margin-left: auto;
+  padding: 3px 9px 4px;
+  background: var(--ink);
+  color: var(--paper);
   font-size: 11px;
+  font-weight: 500;
   line-height: 1.5;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.18em;
   white-space: nowrap;
-  color: var(--muted);
 }
 
 /* ── blocks ────────────────────────────────────────────────────────── */
@@ -105,6 +108,16 @@ main {
   overflow-wrap: anywhere;
 }
 
+/* mirror links sit in the muted column; they darken only on hover */
+.row .where a {
+  color: var(--muted);
+}
+
+.row .where a:hover,
+.row .where a:focus-visible {
+  color: var(--link);
+}
+
 /* ── links ─────────────────────────────────────────────────────────── */
 
 a {
@@ -127,15 +140,6 @@ a:focus-visible {
 ::selection {
   background: var(--ink);
   color: var(--paper);
-}
-
-/* ── foot ──────────────────────────────────────────────────────────── */
-
-.foot {
-  margin: 128px 0 0;
-  font-size: 13px;
-  line-height: 1.6;
-  color: var(--muted);
 }
 
 @media (max-width: 620px) {

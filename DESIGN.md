@@ -42,6 +42,22 @@ No photographs, no icons, no logos of other platforms, no "verified" badge, no
 JavaScript, no web font, no analytics. The page must be readable as plain text
 with CSS disabled, and it must still make sense printed.
 
+## The one inverted element
+
+The plate carries the name as a solid ink chip with paper-coloured type: the
+only filled shape on the page. It is what the eye lands on first, and it costs
+one line of CSS. Nothing else is boxed, so the chip reads as a signature rather
+than a button.
+
+## Mirrors in the right column
+
+Rows whose work exists on three hosts list the alternates (`gitlab · codeberg`)
+in the muted column, while the name links to the GitHub copy. The homepage and
+the blog are the exception: they link to their `pages.dev` address, because that
+is where those two are served from. When GitHub is unreachable the reader still
+has a working second and third address one click away, without the page needing
+JavaScript to probe anything.
+
 ## Identity, not decoration
 
 The page carries `rel="me"` to the other site copies and to Mastodon, and a
