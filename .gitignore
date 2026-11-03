@@ -1,2 +1,6 @@
-_shot*.png
+_*.png
+_*.html
+_*.js
+_probe*.html
+_shot*
 .DS_Store

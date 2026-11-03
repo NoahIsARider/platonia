@@ -1,65 +1,54 @@
-# PLATONIA — design notes
+# PLATONIA design notes
 
-A single index of every address that belongs to one person. The reference is
-`noahisarider.tngl.io/aerial/`: paper, ink, one blue, monospace, no image, no
-card, no border, no shadow.
+One page listing every address that belongs to one person. Plain HTML, no
+build step, no dependency. The register is the aerial page; the surface is
+black paper with white ink.
 
 ## Palette
 
 ```
-paper   #f7f5ef
-ink     #1a1917
-link    #2c4066
-muted   rgba(26, 25, 23, 0.55)
+paper   #0b0b0b
+ink     #f2f0ea
 ```
 
-Three colours. The muted tone is the ink at 55%, never a fourth hue.
+Two colours. Nothing else, no accent hue: the links are the same ink as the
+text, and hierarchy comes from size, spacing and letter-spacing alone.
 
 ## Type
 
-One family: `ui-monospace` with the system fallbacks. Body 15px / 1.62. Labels
-12px, weight 500, letter-spacing 0.2em, uppercase. The right column is 13px.
-No second typeface, no display weight, no italic.
+`ui-monospace` with the system fallbacks, 15px / 1.62. Labels 12px, 500,
+letter-spacing 0.2em, uppercase. One family, two weights.
 
 ## Layout
 
-One column, 76ch, centred. 104px above the plate, 176px below the last row.
-Sections sit 104px apart, rows 22px apart. Nothing is boxed: separation is
-vertical air alone.
+One column, 76ch, centred. 104px above the plate, 176px below the last row,
+104px between sections, 22px between rows. A row is a two-column grid: the
+name on the left, its lamps on the right.
 
-A row is a two-column grid, `minmax(0, 1fr) auto`, 4ch gap. Name on the left,
-the handle or host on the right, both on the same baseline. Long addresses wrap
-instead of overflowing.
+## The lamps
 
-## Links
+Every address a work is reachable at gets one 7px circle, ordered by
+preference. Each circle is itself a link to that address, so a reader can pick
+a host by hand; the row's name goes to the first address that answers.
 
-Names are `--link` and underline only on hover, 1px, 3px offset. Focus is a 1px
-blue outline at 3px. Selection inverts to ink on paper.
+A lamp is checked on load and filled on a 900ms curve, staggered 260ms plus
+jitter, so a row lights in sequence instead of appearing complete. Every five
+seconds one lamp is re-tested at random: it dips and comes back, which is the
+only motion on the page. A single failed re-test never puts a working lamp out, because the
+network stutters more often than a host dies.
+
+Two probes are used because one is not enough: a no-cors `fetch`, and if that
+is refused (bot walls), a load of the site's icon, which browsers fetch under
+different rules.
 
 ## What is deliberately absent
 
-No photographs, no icons, no logos of other platforms, no "verified" badge, no
-JavaScript, no web font, no analytics. The page must be readable as plain text
-with CSS disabled, and it must still make sense printed.
+No image, no icon of any platform, no logo, no "verified" badge, no analytics,
+no web font. The page reads as plain text with CSS off and still makes sense
+printed.
 
-## The one inverted element
+## Identity
 
-The plate carries the name as a solid ink chip with paper-coloured type: the
-only filled shape on the page. It is what the eye lands on first, and it costs
-one line of CSS. Nothing else is boxed, so the chip reads as a signature rather
-than a button.
-
-## Mirrors in the right column
-
-Rows whose work exists on three hosts list the alternates (`gitlab · codeberg`)
-in the muted column, while the name links to the GitHub copy. The homepage and
-the blog are the exception: they link to their `pages.dev` address, because that
-is where those two are served from. When GitHub is unreachable the reader still
-has a working second and third address one click away, without the page needing
-JavaScript to probe anything.
-
-## Identity, not decoration
-
-The page carries `rel="me"` to the other site copies and to Mastodon, and a
-JSON-LD `sameAs` list that names every account. Those are the only machine
-readable parts; everything visible is the plain listing.
+`rel="me"` to the other site copies and to Mastodon, plus a JSON-LD `sameAs`
+naming every account. Those are the only machine-readable parts; everything
+visible is the list itself.

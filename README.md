@@ -8,7 +8,7 @@ search engines.
 Live: https://noahisarider.github.io/platonia/
 
 - `index.html` — the list
-- `style.css` — paper, ink, one blue, monospace
+- `style.css` — black paper, white ink, monospace, one lamp per address
 - `DESIGN.md` — why it looks like this
 
 No build step. GitHub Pages serves the directory as it stands.

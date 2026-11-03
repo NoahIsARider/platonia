@@ -1,10 +1,11 @@
-/* platonia — one index of one person. Three colours, four sizes, two weights. */
+/* platonia — the same column as before, printed on black. */
 
 :root {
-  --paper: #f7f5ef;
-  --ink: #1a1917;
-  --link: #2c4066;
-  --muted: rgba(26, 25, 23, 0.55);
+  --paper: #0b0b0b;
+  --ink: #f2f0ea;
+  --link: #f2f0ea;
+  --muted: rgba(242, 240, 234, 0.46);
+  --rule: rgba(242, 240, 234, 0.1);
   --mono: ui-monospace, "Cascadia Mono", "SF Mono", "Consolas", "Liberation Mono", Menlo, monospace;
 }
 
@@ -93,29 +94,65 @@ main {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   column-gap: 4ch;
-  align-items: baseline;
+  align-items: center;
 }
 
 .row + .row {
   margin-top: 22px;
 }
 
-.row .where {
-  font-size: 13px;
-  line-height: 1.55;
-  color: var(--muted);
-  text-align: right;
-  overflow-wrap: anywhere;
+/* ── lamps ─────────────────────────────────────────────────────────── */
+
+.dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
 }
 
-/* mirror links sit in the muted column; they darken only on hover */
-.row .where a {
-  color: var(--muted);
+/* each circle is a link to that one address, with a hit area larger than
+   the circle itself */
+.dot {
+  width: 15px;
+  height: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  text-decoration: none;
 }
 
-.row .where a:hover,
-.row .where a:focus-visible {
-  color: var(--link);
+.dot::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1px solid rgba(242, 240, 234, 0.3);
+  transition:
+    background-color 900ms cubic-bezier(0.22, 0.68, 0.3, 1),
+    border-color 900ms cubic-bezier(0.22, 0.68, 0.3, 1),
+    box-shadow 900ms cubic-bezier(0.22, 0.68, 0.3, 1),
+    opacity 600ms linear;
+}
+
+/* lit: filled, with the faint bloom of a filament */
+.dot.on::before {
+  background: var(--ink);
+  border-color: var(--ink);
+  box-shadow: 0 0 6px rgba(242, 240, 234, 0.45), 0 0 14px rgba(242, 240, 234, 0.14);
+}
+
+.dot.dead::before {
+  border-color: rgba(242, 240, 234, 0.12);
+}
+
+.dot:hover::before,
+.dot:focus-visible::before {
+  border-color: var(--ink);
+}
+
+/* the periodic re-test: the lamp dips and comes back */
+.dot.blink::before {
+  opacity: 0.25;
 }
 
 /* ── links ─────────────────────────────────────────────────────────── */
@@ -159,14 +196,5 @@ a:focus-visible {
 
   .block + .block {
     margin-top: 72px;
-  }
-
-  .row {
-    grid-template-columns: minmax(0, 1fr);
-    row-gap: 2px;
-  }
-
-  .row .where {
-    text-align: left;
   }
 }
