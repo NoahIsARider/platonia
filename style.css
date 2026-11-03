@@ -52,7 +52,7 @@ main {
   letter-spacing: 0.2em;
 }
 
-.plate .handle /* unused */ {
+.plate .handle {
   font-size: 13px;
 }
 
