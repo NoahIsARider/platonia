@@ -43,9 +43,25 @@ different rules.
 
 ## What is deliberately absent
 
-No image, no icon of any platform, no logo, no "verified" badge, no analytics,
-no web font. The page reads as plain text with CSS off and still makes sense
-printed.
+No image, no logo, no "verified" badge, no analytics, no web font. The page
+reads as plain text with CSS off and still makes sense printed. The one graphic
+is the browser tab icon, which lives outside the page.
+
+## The rings
+
+Between a name and its lamps sits a second, smaller set of rings: Morse, one
+word per row, top to bottom, spelling Stevie Smith's "Not Waving but Drowning".
+They are decoration, not content — 4px against the lamps' 7px, the muted ink at
+70%, no bloom, no hit area, `aria-hidden`, and hidden below 620px. Read them and
+there is a message; ignore them and the page is unchanged.
+
+## The icon
+
+One four-pointed star: the vertical points longer than the horizontal (14 : 10
+on a 32-unit grid), the sides bowed inward so it reads as a sparkle rather than
+a compass. Transparent background; `#f2f0ea` on dark chrome and `#0b0b0b` on
+light chrome through `prefers-color-scheme`, with PNG and ICO fallbacks for
+browsers that will not take an SVG.
 
 ## Identity
 

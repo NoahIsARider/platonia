@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Platonia">
+  <style>
+    path { fill: #f2f0ea; }
+    @media (prefers-color-scheme: light) { path { fill: #0b0b0b; } }
+  </style>
+  <path d="M16 2 Q17.10 14.46 26 16 Q17.10 17.54 16 30 Q14.90 17.54 6 16 Q14.90 14.46 16 2 Z"/>
+</svg>

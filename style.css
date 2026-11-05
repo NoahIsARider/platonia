@@ -92,8 +92,8 @@ main {
 
 .row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  column-gap: 4ch;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  column-gap: 3ch;
   align-items: center;
 }
 
@@ -155,6 +155,45 @@ main {
   opacity: 0.25;
 }
 
+/* ── morse ─────────────────────────────────────────────────────────── */
+
+/* Decoration only: a quiet transmission between a name and its lamps. The
+   rings are smaller and dimmer than the lamps on purpose — nobody should read
+   them before they read the lights. One word per row, top to bottom, spells
+   Stevie Smith's "Not Waving but Drowning". */
+.morse {
+  display: inline-flex;
+  align-items: center;
+  gap: 2.5px;
+  color: var(--muted);
+  opacity: 0.7;
+  pointer-events: none;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.morse i {
+  display: block;
+  flex: none;
+  width: 4px;
+  height: 4px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+}
+
+/* a dash is the same ring, pulled long */
+.morse i.w {
+  width: 9px;
+  border-radius: 2px;
+}
+
+/* the pause between two letters */
+.morse i.s {
+  width: 3px;
+  height: 0;
+  border: 0;
+}
+
 /* ── links ─────────────────────────────────────────────────────────── */
 
 a {
@@ -182,6 +221,11 @@ a:focus-visible {
 @media (max-width: 620px) {
   body {
     padding: 72px 22px 120px;
+  }
+
+  /* no room for a second set of dots on a narrow screen */
+  .morse {
+    display: none;
   }
 
   .plate {
