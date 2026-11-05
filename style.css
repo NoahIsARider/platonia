@@ -157,15 +157,16 @@ main {
 
 /* ── morse ─────────────────────────────────────────────────────────── */
 
-/* Decoration only: a dotted leader between a name and its lamps, spread to
-   the full width of whatever space is left. The rings are smaller and dimmer
-   than the lamps on purpose — nobody should read them before they read the
-   lights. Read top to bottom, they spell the opening of The Waste Land. */
+/* Decoration only: a line of small grey dots floating in the middle of the
+   space between a name and its lamps. The dots are smaller and dimmer than the
+   lamps on purpose — nobody should read them before they read the lights.
+   Read top to bottom, they spell the opening of The Waste Land. */
 .morse {
   display: flex;
   flex: 1;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 2px;
   min-width: 0;
   color: var(--muted);
   opacity: 0.7;
@@ -177,13 +178,13 @@ main {
 .morse i {
   display: block;
   flex: none;
-  width: 4px;
-  height: 4px;
-  border: 1px solid currentColor;
+  width: 3px;
+  height: 3px;
   border-radius: 50%;
+  background: currentColor;
 }
 
-/* a dash: three rings packed tight, so length reads as density, not as a bar */
+/* a dash: three dots packed tight, so length reads as density, not as a bar */
 .morse .x {
   display: inline-flex;
   flex: none;
@@ -192,16 +193,16 @@ main {
 
 /* the pause between two letters */
 .morse i.g {
-  width: 6px;
+  width: 5px;
   height: 0;
-  border: 0;
+  background: transparent;
 }
 
 /* the pause between two words */
 .morse i.gg {
-  width: 13px;
+  width: 11px;
   height: 0;
-  border: 0;
+  background: transparent;
 }
 
 /* ── links ─────────────────────────────────────────────────────────── */
