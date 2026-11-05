@@ -49,11 +49,15 @@ is the browser tab icon, which lives outside the page.
 
 ## The rings
 
-Between a name and its lamps sits a second, smaller set of rings: Morse, one
-word per row, top to bottom, spelling Stevie Smith's "Not Waving but Drowning".
-They are decoration, not content — 4px against the lamps' 7px, the muted ink at
-70%, no bloom, no hit area, `aria-hidden`, and hidden below 620px. Read them and
-there is a message; ignore them and the page is unchanged.
+Between a name and its lamps runs a dotted leader: Morse, read down the page,
+spelling the opening of The Waste Land. A dot is one ring; a dash is three rings
+packed tight, so length reads as density rather than as a bar. The leader is
+spread across whatever space the name and the lamps leave, so it fills the row
+without ever reaching the lights.
+
+Decoration, not content — 4px against the lamps' 7px, the muted ink at 70%, no
+bloom, no hit area, `aria-hidden`, and hidden below 820px. Read it and there is a
+message; ignore it and the page is unchanged.
 
 ## The icon
 
